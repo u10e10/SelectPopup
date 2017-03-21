@@ -14,7 +14,7 @@ function searchNewTab(query){
 $(function(){
   html = $('html');
   body = $('body');
-  body.mouseup(function(){
+  body.mouseup(function(e){
     var selected = document.getSelection();
     var str = selected.toString();
     if(!str || /^\s+$/.test(str))
@@ -24,12 +24,15 @@ $(function(){
     document.execCommand('Copy', false, null);
 
     var uplus_popupMenu = $('#uplus_popupMenu');
-    if(uplus_popupMenu.css('display') != 'none')
-      return;
+    if(uplus_popupMenu.css('display') == 'none')
+      uplus_popupMenu.css('display', 'block');
 
-    // console.log(selected)
-    // uplus_popupMenu.css
-    uplus_popupMenu.css('display', 'block');
+    console.log(e.pageX);
+    console.log(e.pageY);
+    console.log(selected);
+
+    uplus_popupMenu.css('left', e.pageX+20);
+    uplus_popupMenu.css('top', e.pageY-40);
   });
 
   // bodyより後だからいける
@@ -43,11 +46,8 @@ $(function(){
       uplus_popupMenu.css('display', 'none');
   });
 
-  // style sheetをmanifestで指定する
-    // ボタンぽさを出す
-    // ページに依っては上書きされる
-  // 位置変更
-  // do not focusable
+  // ボタンぽさを出す
+  // ページに依っては上書きされる
 
   popup = $("<div>", {
     'id': 'uplus_popupMenu',

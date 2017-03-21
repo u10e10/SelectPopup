@@ -3,15 +3,24 @@
   width: auto;
   background-color: rgba(0,0,0,0);
   color: white;
-  padding-right: 4px;
+  padding-right: 6px;
   border-style: none;
   outline: none;
+  !important;
 }
 
 #uplus_popupMenu {
-  background-color: #2e3134;
   position: absolute;
   z-index: 2147483647;
+
+  /* background-color: #2e3134; */
   /* border: 2px solid #808080; */
 
+  border: 2px dashed #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 0 4px #4f4b41;
+  background-color: #4f4b41;
+  color: #fff;
+  margin: 2px 0;
+  padding: 2px;
 }

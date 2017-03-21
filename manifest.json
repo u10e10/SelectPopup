@@ -6,7 +6,8 @@
   "permissions": [ "*://*/*", "tabs", "contextMenus", "webRequest", "webNavigation", "webRequestBlocking", "storage", "unlimitedStorage", "cookies", "proxy" ],
   "content_scripts": [ {
     "all_frames": true,
-    "js": ["jquery.min.js", "foo.js"],
-    "matches": ["*://*/*"]
+    "matches": ["*://*/*"],
+    "run_at": "document_end",
+    "js": ["jquery.min.js", "foo.js"]
   }]
 }

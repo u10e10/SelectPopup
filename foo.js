@@ -1,22 +1,32 @@
 
 $(function(){
-  $("body").mouseup(function(){
+  body = $('body')
+  body.mouseup(function(){
     var selected = window.getSelection();
-    var str = selected.toString();
-    if(!str) return;
-
-    var display = $('#popupMenu').css('display');
-
-    if(display == 'none'){
-      $('#popupMenu').css('display', 'block')
-    }
-    else {
+    if(!selected.toString())
       return;
-    }
+
+    // Copy selected text to clipboard
+    document.execCommand('Copy', false, null);
+
+    var popupMenu = $('#popupMenu');
+    if(popupMenu.css('display') == 'none')
+      popupMenu.css('display', 'block');
+    else
+      return;
+  });
+
+  body.mousedown(function(){
+    var selected = window.getSelection();
+    if(selected.toString())
+      return;
+
+    var popupMenu = $('#popupMenu');
+    if(popupMenu.css('display') != 'none')
+      popupMenu.css('display', 'block');
   });
 
   // not focusable
-
   popup = $("<div>", {
     id: 'popupMenu',
     height: '40px',

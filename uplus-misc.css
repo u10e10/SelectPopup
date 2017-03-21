@@ -1,8 +1,17 @@
 .uplus_popupMenuButton {
-    height: 100%;
-    width: auto;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    border-style: none;
-    padding-right: 2px;
+  height: 100%;
+  width: auto;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  padding-right: 4px;
+  border-style: none;
+  outline: none;
+}
+
+#uplus_popupMenu {
+  background-color: #2e3134;
+  position: absolute;
+  z-index: 2147483647;
+  /* border: 2px solid #808080; */
+
 }

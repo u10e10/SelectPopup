@@ -1,12 +1,23 @@
 function newPopupButton(value, onclick){
+  return $('<input>',{
+    'type': 'button',
+    'class': 'uplus_popupMenuButton',
+    'value': value,
+    'on': { 'click': onclick }
+  });
+}
+
+function searchNewTab(query){
+  window.open('https://www.google.com/search?q='+query, '_blank');
 }
 
 $(function(){
   html = $('html');
   body = $('body');
   body.mouseup(function(){
-    var selected = window.getSelection();
-    if(!selected.toString())
+    var selected = document.getSelection();
+    var str = selected.toString();
+    if(!str || /^\s+$/.test(str))
       return;
 
     // Copy selected text to clipboard
@@ -33,36 +44,25 @@ $(function(){
   });
 
   // style sheetをmanifestで指定する
+    // ボタンぽさを出す
+    // ページに依っては上書きされる
   // 位置変更
   // do not focusable
 
   popup = $("<div>", {
-    id: 'uplus_popupMenu',
-    height: '40px',
-    css: {position: 'absolute', 'z-index': 2147483647, left: '320px', top: '400px', display: 'none'}
+    'id': 'uplus_popupMenu',
+    'height': '40px',
+    'css': {
+      // dynamic
+      'display': 'none',
+      // dumy
+      'left': '320px',
+      'top': '400px',
+    }
   });
 
-  popup.append($('<input>',{
-    type: 'button',
-    'class': 'uplus_popupMenuButton',
-    value: 'Search',
-    on: {
-      click: function(){
-        window.open('https://www.google.com/search?q='+document.getSelection().toString(), '_blank');
-      }
-    }
-  }));
-
-  popup.append($('<input>',{
-    type: 'button',
-    value: 'ABC',
-    height: '100%',
-    on: {
-      click: function(){
-        alert('Clicked');
-      }
-    }
-  }));
+  popup.append(newPopupButton('Search', function(){ searchNewTab(document.getSelection().toString())}))
+  popup.append(newPopupButton('ABC', function(){ alert('ABCDEFG')}));
 
   $('body').append(popup);
 })

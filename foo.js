@@ -46,9 +46,6 @@ $(function(){
       uplus_popupMenu.css('display', 'none');
   });
 
-  // ボタンぽさを出す
-  // ページに依っては上書きされる
-
   popup = $("<div>", {
     'id': 'uplus_popupMenu',
     'height': '40px',

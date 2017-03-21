@@ -1,16 +1,14 @@
 
 $(function(){
-  $("*").mouseup(function(){
+  $("body").mouseup(function(){
     var selected = window.getSelection();
     var str = selected.toString();
     if(!str) return;
 
-    console.log(str);
+    var display = $('#popupMenu').css('display');
 
-    var display = $('#testPopup').css('display');
-    console.log(display);
     if(display == 'none'){
-      $('#testPopup').css('display', 'block')
+      $('#popupMenu').css('display', 'block')
     }
     else {
       return;
@@ -20,25 +18,25 @@ $(function(){
   // not focusable
 
   popup = $("<div>", {
-    id: 'testPopup',
+    id: 'popupMenu',
     height: '40px',
-    css: {position: 'absolute', 'z-index': 2147483647, left: '320px', top: '400px', display: 'none' }
+    css: {position: 'absolute', 'z-index': 2147483647, left: '320px', top: '400px', display: 'none'}
   });
 
   popup.append($('<input>',{
     type: 'button',
     value: 'Search',
-    height: "100%",
+    height: '100%',
     on: {
       click: function(){
-        alert(document.getSelection().toString());
+        window.open('https://www.google.com/search?q='+document.getSelection().toString(), '_blank');
       }
     }
   }));
 
   popup.append($('<input>',{
     type: 'button',
-    value: 'I like Lily!',
+    value: 'ABC',
     height: '100%',
     on: {
       click: function(){

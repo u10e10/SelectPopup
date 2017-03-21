@@ -1,6 +1,9 @@
+function newPopupButton(value, onclick){
+}
 
 $(function(){
-  body = $('body')
+  html = $('html');
+  body = $('body');
   body.mouseup(function(){
     var selected = window.getSelection();
     if(!selected.toString())
@@ -9,21 +12,24 @@ $(function(){
     // Copy selected text to clipboard
     document.execCommand('Copy', false, null);
 
-    var popupMenu = $('#popupMenu');
-    if(popupMenu.css('display') == 'none')
-      popupMenu.css('display', 'block');
-    else
+    var uplus_popupMenu = $('#uplus_popupMenu');
+    if(uplus_popupMenu.css('display') != 'none')
       return;
+
+    // console.log(selected)
+    // uplus_popupMenu.css
+    uplus_popupMenu.css('display', 'block');
   });
 
-  body.mousedown(function(){
+  // bodyより後だからいける
+  html.mouseup(function(){
     var selected = window.getSelection();
     if(selected.toString())
       return;
 
-    var popupMenu = $('#popupMenu');
-    if(popupMenu.css('display') != 'none')
-      popupMenu.css('display', 'block');
+    var uplus_popupMenu = $('#uplus_popupMenu');
+    if(uplus_popupMenu.css('display') != 'none')
+      uplus_popupMenu.css('display', 'none');
   });
 
   // style sheetをmanifestで指定する
@@ -40,7 +46,6 @@ $(function(){
     type: 'button',
     'class': 'uplus_popupMenuButton',
     value: 'Search',
-    // height: '100%',
     on: {
       click: function(){
         window.open('https://www.google.com/search?q='+document.getSelection().toString(), '_blank');
@@ -59,6 +64,5 @@ $(function(){
     }
   }));
 
-  console.log(popup.toString());
   $('body').append(popup);
 })

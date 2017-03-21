@@ -1,0 +1,12 @@
+{
+  "name": "MyTestChromeAddon",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Chromeアドオンを自作してみるテスト。",
+  "permissions": [ "*://*/*", "tabs", "contextMenus", "webRequest", "webNavigation", "webRequestBlocking", "storage", "unlimitedStorage", "cookies", "proxy" ],
+  "content_scripts": [ {
+    "all_frames": true,
+    "js": ["jquery.min.js", "foo.js"],
+    "matches": ["*://*/*"]
+  }]
+}

@@ -26,17 +26,21 @@ $(function(){
       popupMenu.css('display', 'block');
   });
 
-  // not focusable
+  // style sheetをmanifestで指定する
+  // 位置変更
+  // do not focusable
+
   popup = $("<div>", {
-    id: 'popupMenu',
+    id: 'uplus_popupMenu',
     height: '40px',
     css: {position: 'absolute', 'z-index': 2147483647, left: '320px', top: '400px', display: 'none'}
   });
 
   popup.append($('<input>',{
     type: 'button',
+    'class': 'uplus_popupMenuButton',
     value: 'Search',
-    height: '100%',
+    // height: '100%',
     on: {
       click: function(){
         window.open('https://www.google.com/search?q='+document.getSelection().toString(), '_blank');
@@ -55,14 +59,6 @@ $(function(){
     }
   }));
 
-  // style sheetをmanifestで指定する
-
   console.log(popup.toString());
   $('body').append(popup);
 })
-
-// 予め挿入しておいて enable <> disable
-// 位置変更
-// ハンドリングを止める1度で止める必要がある
-// unfocusで削除
-// ボタンをクリックしたら停止

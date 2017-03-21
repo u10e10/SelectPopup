@@ -8,6 +8,7 @@
     "all_frames": true,
     "matches": ["*://*/*"],
     "run_at": "document_start",
+    "css": ["uplus-misc.css"],
     "js": ["jquery.min.js", "foo.js"]
   }]
 }

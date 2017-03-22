@@ -59,7 +59,7 @@ $(function(){
   });
 
   popup.append(newPopupButton('Search', function(){ searchNewTab(document.getSelection().toString())}))
-  popup.append(newPopupButton('ABC', function(){ alert('ABCDEFG')}));
+  // popup.append(newPopupButton('ABC', function(){ alert('ABCDEFG')}));
 
   $('body').append(popup);
 })

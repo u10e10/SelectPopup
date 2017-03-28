@@ -1,14 +1,14 @@
 {
-  "name": "MyTestChromeAddon",
+  "name": "SelectPopup",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Chromeアドオンを自作してみるテスト。",
+  "description": "Show popup menu when text selected",
   "permissions": [ "*://*/*"],
   "content_scripts": [ {
     "all_frames": true,
     "matches": ["*://*/*"],
     "run_at": "document_start",
-    "css": ["uplus-misc.css"],
-    "js": ["jquery.min.js", "foo.js"]
+    "css": ["select-popup.css"],
+    "js": ["jquery.min.js", "select-popup.js"]
   }]
 }

@@ -48,7 +48,7 @@ $(function(){
 
   popup = $("<div>", {
     'id': 'uplus_popupMenu',
-    'height': '40px',
+    'height': '30px',
     'css': {
       // dynamic
       'display': 'none',

@@ -59,6 +59,7 @@ $(function(){
   });
 
   popup.append(newPopupButton('Search', function(){ searchNewTab(document.getSelection().toString())}))
+  popup.append(newPopupButton('Go', function(){ window.open(document.getSelection().toString(), '_blank') }))
   // popup.append(newPopupButton('ABC', function(){ alert('ABCDEFG')}));
 
   $('body').append(popup);

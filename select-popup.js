@@ -22,7 +22,9 @@ $(() => {
     if (!str || /^\s+$/.test(str)) return;
 
     // Copy selected text to clipboard
-    document.execCommand('copy', false, null);
+    clipboardData.setData('text/plain', str.replace(/^\s+|\s+$/g, ''));
+
+    return;
 
     const uplus_popupMenu = $('#uplus_popupMenu');
     if (uplus_popupMenu.css('display') === 'none') {
